@@ -1,0 +1,10 @@
+{
+  "name": "navigation-team",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
+  "sourceRoot": "./src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project navigation-team --web",
+  "targets": {}
+}
