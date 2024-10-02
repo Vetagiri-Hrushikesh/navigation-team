@@ -1,4 +1,3 @@
-// src/config/controlAccessConfig.ts
 import { ControlConfig } from '../types';
 
 export const controlAccessConfig: ControlConfig = {
