@@ -1,5 +1,13 @@
 import { SubControlConfig } from '../types';
 
+
+/**
+ * subcontrolAccessConfig
+ * 
+ * This object defines access control for subcomponents within the main controls (Header, Primary, Secondary).
+ * The configuration is based on the user role (admin, user) and the subscription package (premium, basic).
+ * It ensures that only certain subcomponents are accessible depending on the user's privileges.
+ */
 export const subcontrolAccessConfig: SubControlConfig = {
   'Header': {
     premium: {

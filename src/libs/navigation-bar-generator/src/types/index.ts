@@ -44,34 +44,39 @@ export interface PackageControls {
 export type ControlConfig = {
   [key in FeatureKey]: PackageControls;
 };
-  
-  export interface GlobalState {
-    isAuthenticated: boolean;
-    packageType: PackageType;
-    role: RoleType;
-    features: FeatureKey[];
-    controls: ControlName[];
-    subControls: React.ComponentType[];
-    selectedFeature: FeatureKey | null;
-    selectedControl: ControlName | null;
-    selectedPreviewUrl: string;
-    menuTextValue: string;
-  }
-  
 
+  // Defines the shape of the global state, including authentication, package type, role, features, controls, and more.
+  export interface GlobalState {              
+    isAuthenticated: boolean;                 // Tracks if the user is authenticated.
+    packageType: PackageType;                 // The type of package the user is subscribed to ('basic' or 'premium').
+    role: RoleType;                           // The role of the user ('user' or 'admin').
+    features: FeatureKey[];                  // Array of features accessible to the user.
+    controls: ControlName[];                  // Array of controls available to the user.
+    subControls: React.ComponentType[];       // Array of sub-controls available to the user.
+    selectedFeature: FeatureKey | null;        // The currently selected feature.
+    selectedControl: ControlName | null;       // The currently selected control.
+    selectedPreviewUrl: string;               // URL for the currently selected preview.
+    menuTextValue: string;                   // The current value of the menu text.
+  } 
+  
+  // Defines the sub-control access model, where each role has access to specific sub-controls.
 export interface SubControlAccess {
     [role: string]: string[];
   }
-  
+
+  // Maps package types to sub-control access configurations, allowing different sub-controls for 'premium' and 'basic' packages.
   export interface ControlSubControls {
     premium: SubControlAccess;
     basic: SubControlAccess;
   }
   
+  // Maps control names to their corresponding sub-control configurations.
   export type SubControlConfig = {
     [control in ControlName]: ControlSubControls;
   };
 
+
+  // Defines the shape of actions that can be dispatched to the global state reducer, each having a 'type' and 'payload'.
   export type GlobalAction = 
   | { type: 'SET_AUTHENTICATION'; payload: boolean }
   | { type: 'SET_USER_PACKAGE_TYPE'; payload: PackageType }
